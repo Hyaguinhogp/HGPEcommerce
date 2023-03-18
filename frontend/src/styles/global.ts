@@ -78,6 +78,10 @@ export const Global = createGlobalStyle`
         line-height: 1;
     }
 
+    .modal_active {
+        overflow: hidden;
+    }
+
     article, aside, details, figcaption, figure,
     footer, header, hgroup, menu, nav, section {
         display: block;

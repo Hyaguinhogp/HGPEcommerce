@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import { ModelProvider } from "./ContextModel"
+import { PagesProvider } from "./ContextModel"
 
 interface IProvidersProps {
     children: ReactNode
@@ -7,9 +7,9 @@ interface IProvidersProps {
 
 const Providers = ({ children }: IProvidersProps) => {
     return (
-        <ModelProvider>
+        <PagesProvider>
             {children}
-        </ModelProvider>
+        </PagesProvider>
     )
 }
 

@@ -1,14 +1,14 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react"
 import Navbar from "../../components/Navbar"
-import { pagesContext } from "../../contexts/ContextModel";
+import { pagesContext, PagesProvider } from "../../contexts/ContextModel";
 import { HomeContainer, HomeContent } from "./styles"
 
-const Home = () => {
+const Categories = () => {
 
     const { actualPage, setActualPage } = useContext(pagesContext);
 
     useEffect(() => {
-        setActualPage("Home");
+        setActualPage("Categorias");
     }, []);
 
     return (
@@ -16,11 +16,11 @@ const Home = () => {
             <Navbar />
             <HomeContainer>
                 <HomeContent>
-                    <h1>Home</h1>
+                    <h1>Categories</h1>
                 </HomeContent>
             </HomeContainer>
         </>
     )
 }
 
-export default Home
+export default Categories

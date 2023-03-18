@@ -1,15 +1,23 @@
-import { createContext, ReactNode } from "react"
+import { createContext, ReactNode, useState } from "react"
 
-interface IModelProviderData {
+interface IPageProviderData {
+    actualPage: string
+    setActualPage: React.Dispatch<React.SetStateAction<string>>
+}
+
+interface IPageProviderProps {
     children: ReactNode
 }
 
-export const modelContext = createContext<IModelProviderData>({} as IModelProviderData)
+export const pagesContext = createContext<IPageProviderData>({} as IPageProviderData)
 
-export const ModelProvider = ({ children }: IModelProviderData) => {
+export const PagesProvider = ({ children }: IPageProviderProps) => {
+
+    const [actualPage, setActualPage] = useState("Home");
+
     return (
-        <modelContext.Provider value={{ children }}>
+        <pagesContext.Provider value={{ actualPage, setActualPage }}>
             {children}
-        </modelContext.Provider>
+        </pagesContext.Provider>
     )
 }
