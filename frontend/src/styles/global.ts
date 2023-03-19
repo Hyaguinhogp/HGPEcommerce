@@ -22,6 +22,7 @@ export const Global = createGlobalStyle`
 
         --grey-00: #1E1F1F;
 
+        --Heading-0-500: 500 65px/64px 'Lexend', sans-serif;
         --Heading-1-700: 700 44px/56px 'Lexend', sans-serif;
         --Heading-2-600: 600 36px/45px 'Lexend', sans-serif;
         --Heading-3-600: 600 32px/40px 'Lexend', sans-serif;
@@ -76,6 +77,11 @@ export const Global = createGlobalStyle`
         background-color: var(--grey-09);
         min-height: 100%;
         line-height: 1;
+        overflow-x: hidden;
+    }
+
+    .modal_active {
+        overflow: hidden;
     }
 
     article, aside, details, figcaption, figure,

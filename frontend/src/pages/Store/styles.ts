@@ -1,12 +1,9 @@
 import styled from "styled-components";
 import { DefaultContainer, DefaultContent } from "../../styles/global";
 
-export const HomeContainer = styled.div`
-    display: flex;
-    width: 100%;
+export const HomeContainer = styled(DefaultContainer)`
     min-height: 100vh;
-    padding-top: 85px;
-    background-color: white;
+    overflow: hidden;
 `
 
 export const HomeContent = styled(DefaultContent)`
