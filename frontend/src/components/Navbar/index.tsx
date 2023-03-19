@@ -94,8 +94,15 @@ const Navbar = () => {
             <NavbarContainer>
                 <NavbarContent>
                     <Logo />
-                    <h2>{actualPage}</h2>
-                    <DropdownButton onClick={handleDropdownButton} />
+                    {
+                        document.body.offsetWidth < 900 ?
+                            <>
+                                <h2>{actualPage}</h2>
+                                <DropdownButton onClick={handleDropdownButton} />
+                            </>
+                            :
+                            null
+                    }
 
                 </NavbarContent>
             </NavbarContainer>

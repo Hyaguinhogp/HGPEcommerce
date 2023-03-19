@@ -15,7 +15,9 @@ const Home = () => {
     return (
         <>
             <Navbar />
-            <HomeInitialSection />
+            <HomeContainer>
+                <HomeInitialSection />
+            </HomeContainer>
         </>
     )
 }
