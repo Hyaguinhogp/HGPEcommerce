@@ -22,13 +22,11 @@ export const NavbarContent = styled(DefaultContent)`
 export const Logo = styled(LogoIcon)`
     width: 30px;
     height: 30px;
-    color: #ffffff;
 `
 
 export const DropdownButton = styled(DropdownIcon)`
     width: 25px;
     height: 25px;
-    color: #ffffff;
     cursor: pointer;
 
     :hover {
