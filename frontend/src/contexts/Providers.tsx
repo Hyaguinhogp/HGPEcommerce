@@ -1,5 +1,6 @@
 import { ReactNode } from "react"
-import { PagesProvider } from "./ContextModel"
+import { DropdownProvider } from "./DropdownContext"
+import { PagesProvider } from "./PagesContext"
 
 interface IProvidersProps {
     children: ReactNode
@@ -8,7 +9,9 @@ interface IProvidersProps {
 const Providers = ({ children }: IProvidersProps) => {
     return (
         <PagesProvider>
-            {children}
+            <DropdownProvider>
+                {children}
+            </DropdownProvider>
         </PagesProvider>
     )
 }
