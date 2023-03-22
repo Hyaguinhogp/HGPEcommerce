@@ -34,6 +34,7 @@ export const Global = createGlobalStyle`
         --Heading-5-400: 400 24px/30px 'Lexend', sans-serif;
         --Heading-6-600: 600 20px/25px 'Lexend', sans-serif;
         --Heading-6-500: 500 20px/25px 'Lexend', sans-serif;
+        --Heading-6-400: 400 20px/25px 'Lexend', sans-serif;
         --Heading-7-600: 600 16px/20px 'Lexend', sans-serif;
         --Heading-7-500: 500 16px/20px 'Lexend', sans-serif;
 

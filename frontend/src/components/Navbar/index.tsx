@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { dropdownContext } from "../../contexts/DropdownContext";
 import Dropdown from "../Dropdown";
+import NavbarDesktopContent from "../NavbarDesktopContent";
 import NavbarMobileContent from "../NavbarMobileContent";
 import { Logo, NavbarContainer, NavbarContent } from "./styles";
 
@@ -26,7 +27,7 @@ const Navbar = () => {
                         document.body.offsetWidth < 900 ?
                             <NavbarMobileContent />
                             :
-                            null
+                            <NavbarDesktopContent />
                     }
 
                 </NavbarContent>

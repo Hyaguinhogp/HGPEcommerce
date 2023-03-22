@@ -11,6 +11,16 @@ const Dropdown = () => {
     const { actualPage } = useContext(pagesContext);
     const { handleDropdownButton } = useContext(dropdownContext);
 
+    const animation = {
+        whileHover: {
+            x: 10
+        },
+        transition: {
+            type: "spring",
+            duration: 0.5
+        }
+    }
+
     return (
         <PagesContainer>
             <Pages
@@ -27,39 +37,15 @@ const Dropdown = () => {
 
                 <motion.div className="dropdown_mid_container">
 
-                    <motion.div
-                        whileHover={{
-                            x: 10
-                        }}
-                        transition={{
-                            type: "spring",
-                            duration: 0.5,
-                        }}
-                    >
+                    <motion.div {...animation}>
                         <Link to="/home" className={actualPage === "Home" ? "actual_page" : ""}>Home</Link>
                     </motion.div>
 
-                    <motion.div
-                        whileHover={{
-                            x: 10
-                        }}
-                        transition={{
-                            type: "spring",
-                            duration: 0.5,
-                        }}
-                    >
+                    <motion.div {...animation}>
                         <Link to="/store" className={actualPage === "Loja" ? "actual_page" : ""}>Loja</Link>
                     </motion.div>
 
-                    <motion.div
-                        whileHover={{
-                            x: 10
-                        }}
-                        transition={{
-                            type: "spring",
-                            duration: 0.5,
-                        }}
-                    >
+                    <motion.div {...animation}>
                         <Link to="/categories" className={actualPage === "Categorias" ? "actual_page" : ""}>Categorias</Link>
                     </motion.div>
                 </motion.div>
