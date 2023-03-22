@@ -34,8 +34,10 @@ const NavbarDesktopContent = () => {
                 </motion.div>
             </Navbar>
             <SearchAndProfile>
-                <input type="text" />
-                <div className="profile_image_container"></div>
+                <input type="text" placeholder="Notebook gamer..." />
+                <figure className="profile_image_container">
+                    <img src="https://w0.peakpx.com/wallpaper/979/89/HD-wallpaper-purple-smile-design-eye-smily-profile-pic-face.jpg" alt="" />
+                </figure>
             </SearchAndProfile>
         </NavbarDesktopContainer>
     )

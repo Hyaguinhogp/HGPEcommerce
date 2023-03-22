@@ -44,9 +44,16 @@ export const SearchAndProfile = styled.div`
 
     .profile_image_container {
         display: flex;
+        justify-content: center;
+        align-items: center;
         width: 50px;
         height: 50px;
         background-color: var(--whiteFixed);
         border-radius: 50%;
+        overflow: hidden;
+    }
+
+    img {
+        width: 100%;
     }
 `
