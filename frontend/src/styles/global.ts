@@ -7,6 +7,10 @@ export const Global = createGlobalStyle`
         --theme-01: #BB86F9;
         --theme-02: #D9B9FF;
 
+        --random-00: #D2345A;
+        --random-01: #3457D2;
+        --random-02: #E4D9DC;
+
         --grey-00: #0B0D0D;
         --grey-01: #212529;
         --grey-02: #495057;
