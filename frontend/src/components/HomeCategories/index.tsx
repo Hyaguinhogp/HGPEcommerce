@@ -3,13 +3,31 @@ import { ReactComponent as Notebooks } from "../../assets/notebook_card.svg";
 import { ReactComponent as NoteGamer } from "../../assets/notebook_gamer_icon.svg";
 import { ReactComponent as NoteWork } from "../../assets/notebook_work_icon.svg";
 import { ReactComponent as NoteCasual } from "../../assets/notebook_casual_icon.svg";
+import { useState } from "react";
 
 const HomeCategories = () => {
+
+    const [images, setImages] = useState([0, 1, 2]);
+    const [actualImage, setActualImage] = useState(0);
+
+
+    const setProps = (position: number) => {
+        return {
+            position,
+            actualImage,
+            isSelected: position === actualImage,
+            right: position > actualImage,
+            left: position < actualImage
+        }
+    }
+
     return (
         <HomeCategoriesContainer>
             <HomeCategoriesContent>
                 <HomeCategoriesImages>
-                    <CategoryImage>
+                    <CategoryImage {...setProps(0)} style={{ backgroundColor: "blue" }}></CategoryImage>
+
+                    <CategoryImage {...setProps(1)}>
                         <Notebooks />
                         <InfoContainer>
                             <TitleContainer>
@@ -34,12 +52,18 @@ const HomeCategories = () => {
                             </BottomContainer>
                         </InfoContainer>
                     </CategoryImage>
+
+                    <CategoryImage {...setProps(2)} style={{ backgroundColor: "pink" }}></CategoryImage>
                 </HomeCategoriesImages>
                 <DotsContainer>
-                    <div className="dot"></div>
-                    <div className="dot selected"></div>
-                    <div className="dot"></div>
-                    <div className="dot"></div>
+                    {
+                        images.map((index, image) => {
+                            return <div
+                                className={index === actualImage ? "dot selected" : "dot"}
+                                onClick={() => setActualImage(index)}
+                            ></div>
+                        })
+                    }
                 </DotsContainer>
             </HomeCategoriesContent>
         </HomeCategoriesContainer>

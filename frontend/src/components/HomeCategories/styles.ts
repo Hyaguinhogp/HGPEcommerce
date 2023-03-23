@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { DefaultContainer, DefaultContent } from "../../styles/global";
 
@@ -21,17 +22,29 @@ export const HomeCategoriesImages = styled.div`
     width: 100%;
 `
 
-export const CategoryImage = styled.div`
-    position: relative;
+interface ICategoryImageProps {
+    position: number
+    actualImage: number
+    isSelected?: boolean
+    right?: boolean
+    left?: boolean
+}
+
+export const CategoryImage = styled(motion.div)`
+    position: ${(props: ICategoryImageProps) => props.isSelected ? "relative" : "absolute"};
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 90%;
-    height: 80vh;
+    width: ${(props: ICategoryImageProps) => props.isSelected ? "90%" : "80%"};
+    height: ${(props: ICategoryImageProps) => props.isSelected ? "80vh" : "70vh"};
     border-radius: 5px;
     background-color: white;
     overflow: hidden;
+    right: ${({ isSelected, right }: ICategoryImageProps) => !isSelected && right ? "20px" : "none"};
+    left: ${({ isSelected, left }: ICategoryImageProps) => !isSelected && left ? "20px" : "none"};
+
+    z-index: ${(props: ICategoryImageProps) => props.isSelected ? 10 : 0};
 
     > svg {
         position: absolute;
@@ -122,6 +135,7 @@ export const DotsContainer = styled.div`
         height: 15px;
         border: 2px solid var(--theme-01);
         border-radius: 50%;
+        cursor: pointer;
     }
 
     .selected {
