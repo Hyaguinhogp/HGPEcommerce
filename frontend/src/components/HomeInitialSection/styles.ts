@@ -57,7 +57,5 @@ export const Eletros = styled(EletrosIcon)`
     align-items: center;
     width: 700px;
 
-    @media (min-width: 900px) {
-        width: 900px;
-    }
+
 `

@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import styled from "styled-components";
 import { DefaultContainer, DefaultContent } from "../../styles/global";
 
@@ -16,118 +15,19 @@ export const HomeCategoriesContent = styled(DefaultContent)`
 `
 
 export const HomeCategoriesImages = styled.div`
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-`
-
-interface ICategoryImageProps {
-    position: number
-    actualImage: number
-    isSelected?: boolean
-    right?: boolean
-    left?: boolean
-}
-
-export const CategoryImage = styled(motion.div)`
-    position: ${(props: ICategoryImageProps) => props.isSelected ? "relative" : "absolute"};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: ${(props: ICategoryImageProps) => props.isSelected ? "90%" : "80%"};
-    height: ${(props: ICategoryImageProps) => props.isSelected ? "80vh" : "70vh"};
-    border-radius: 5px;
-    background-color: white;
-    overflow: hidden;
-    right: ${({ isSelected, right }: ICategoryImageProps) => !isSelected && right ? "20px" : "none"};
-    left: ${({ isSelected, left }: ICategoryImageProps) => !isSelected && left ? "20px" : "none"};
-
-    z-index: ${(props: ICategoryImageProps) => props.isSelected ? 10 : 0};
-
-    > svg {
-        position: absolute;
-        width: 100%;
-        scale: 1.3;
-    }
-    `
-
-export const InfoContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    z-index: 10;
-
-    h2 {
-        color: var(--random-00);
-        font: var(--Heading-6-500);
-    }
-`
-
-export const TitleContainer = styled.div`
-    display: flex;
-    width: 100%;
-    justify-content: end;
-`
-
-export const BottomContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    justify-content: end;
-    text-align: center;
-
-    h3 {
-        font: var(--body-1-400);
-        color: var(--whiteFixed);
-    }
-
-    span {
-        color: var(--random-01);
-    }
-`
-
-export const NotebookTypesContainer = styled.div`
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    height: 200px;
-`
-
-interface INotebookTypeProps {
-    color: string
-}
-
-export const NotebookType = styled.div<INotebookTypeProps>`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 30%;
-    height: 100%;
-    border: 2px solid var(${(props: INotebookTypeProps) => props.color});
-    border-radius: 4px;
-
-    svg {
-        position: relative;
-        width: 80px;
-    }
-
-    h3 {
-        color: var(${(props: INotebookTypeProps) => props.color});
-    }
+    height: 85vh;
 `
 
 export const DotsContainer = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
-    padding: 20px 0;
+    padding-bottom: 20px;
     gap: 5px;
 
     .dot {
