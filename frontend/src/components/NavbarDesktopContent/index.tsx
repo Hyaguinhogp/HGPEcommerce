@@ -1,9 +1,8 @@
+import { motion } from "framer-motion";
 import { useContext } from "react";
-import { dropdownContext } from "../../contexts/DropdownContext";
+import { Link } from "react-router-dom";
 import { pagesContext } from "../../contexts/PagesContext";
 import { Navbar, NavbarDesktopContainer, SearchAndProfile } from "./styles";
-import { motion } from "framer-motion"
-import { Link } from "react-router-dom";
 
 const NavbarDesktopContent = () => {
     const { actualPage } = useContext(pagesContext);
