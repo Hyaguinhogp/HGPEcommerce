@@ -1,0 +1,55 @@
+INICIAR PROJETO:
+    python -m venv venv
+
+    .\venv\Scripts\activate
+
+    pip install django
+
+    django-admin startproject core .
+
+
+DJANGO REST FRAMEWORK:
+    pip install djangorestframework
+
+    core/settings.py
+
+    INSTALLED_APPS = [
+        ...,
+        'rest_framework',
+    ]
+
+
+CRIAR APP:
+    python manage.py startapp nome_do_app
+
+    from django.db import models
+        class Nome(models.Model):
+            first_name = models.CharField(max_length=50)
+            last_name = models.CharField(max_length=50)
+
+    core/settings.py
+
+    INSTALLED_APPS = [
+        ...,
+        "nome_do_app",
+    ]
+
+MIGRATIONS:
+    python manage.py makemigrations
+
+    python manage.py migrate
+
+USER:
+    python manage.py startapp accounts
+
+    accounts/models.py
+
+    from django.contrib.auth.models import AbstractUser
+    class User(AbstractUser):
+        pass
+
+    project/settings.py
+
+    AUTH_USER_MODEL = 'accounts.User'
+
+
