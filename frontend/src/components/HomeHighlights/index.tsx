@@ -1,5 +1,4 @@
-import DefaultProductCard from "../DefaultProductCard"
-import { HomeCategoriesContainer } from "../HomeCategories/styles"
+import ProductCarrousel from "../ProductCarrousel"
 import { HomeHighlihtsContainer, HomeHighlihtsContent } from "./styles"
 
 const HomeHighlights = () => {
@@ -7,7 +6,7 @@ const HomeHighlights = () => {
         <HomeHighlihtsContainer>
             <HomeHighlihtsContent>
                 <h2>Destaques</h2>
-                <DefaultProductCard />
+                <ProductCarrousel />
             </HomeHighlihtsContent>
         </HomeHighlihtsContainer>
     )
