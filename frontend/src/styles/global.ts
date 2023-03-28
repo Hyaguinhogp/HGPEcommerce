@@ -46,6 +46,7 @@ export const Global = createGlobalStyle`
         --body-1-600: 600 16px/28px 'Inter', sans-serif;
         --body-2-400: 400 14px/24px 'Inter', sans-serif;
         --body-2-500: 500 14px/24px 'Inter', sans-serif;
+        --body-2-600: 600 14px/24px 'Inter', sans-serif;
 
         --button-big-text: 600 16px 'Inter', sans-serif;
         --button-medium-text: 600 14px 'Inter', sans-serif;
