@@ -3,7 +3,7 @@ INICIAR PROJETO:
 
     .\venv\Scripts\activate
 
-    pip install django
+    pip install django ipython
 
     django-admin startproject core .
 
@@ -11,12 +11,11 @@ INICIAR PROJETO:
 DJANGO REST FRAMEWORK:
     pip install djangorestframework
 
-    core/settings.py
-
-    INSTALLED_APPS = [
-        ...,
-        'rest_framework',
-    ]
+    core/settings.py:
+        INSTALLED_APPS = [
+            ...,
+            'rest_framework',
+        ]
 
 
 CRIAR APP:
@@ -27,12 +26,11 @@ CRIAR APP:
             first_name = models.CharField(max_length=50)
             last_name = models.CharField(max_length=50)
 
-    core/settings.py
-
-    INSTALLED_APPS = [
-        ...,
-        "nome_do_app",
-    ]
+    core/settings.py:
+        INSTALLED_APPS = [
+            ...,
+            "nome_do_app",
+        ]
 
 MIGRATIONS:
     python manage.py makemigrations
@@ -48,8 +46,65 @@ USER:
     class User(AbstractUser):
         pass
 
-    project/settings.py
+    core/settings.py:
+        INSTALLED_APPS = [
+            ...,
+            "nome_do_app",
+        ]
 
-    AUTH_USER_MODEL = 'accounts.User'
+    project/settings.py:
+        AUTH_USER_MODEL = 'accounts.User'
+
+
+SERIALIZERS:
+    accounts/serializers.py:
+        from rest_framework import serializers
+        from .models import User
+
+
+        class AccountSerializer(serializers.ModelSerializer):
+            class Meta:
+                model = User
+                fields = ["id", "username", "email", "is_active", "password"]
+                read_only_fields = ["id", "is_active"]
+                extra_kwargs = {"password": {"write_only": True}}
+
+
+VIEWS:
+    accounts/views.py:
+        from rest_framework import generics
+        from .models import User
+        from .serializers import AccountSerializer
+        from rest_framework.permissions import IsAdminUser
+
+        class UserCreate(generics.CreateAPIView):
+            queryset = User.objects.all()
+            serializer_class = AccountSerializer
+
+        class UserList(generics.ListAPIView):
+            queryset = User.objects.all()
+            serializer_class = AccountSerializer
+            permission_classes = [IsAdminUser]
+
+
+URLS:
+    accounts/urls.py:
+        from django.urls import path
+        from . import views
+
+        urlpatterns = [
+            path("users/", views.UserCreate.as_view()),
+            path("users/<int:pk>/", views.UserDetailView.as_view()),
+        ]
+
+    core/urls.py:
+        from django.contrib import admin
+        from django.urls import path, include
+
+        urlpatterns = [
+            path("admin/", admin.site.urls),
+            path("api/", include("accounts.urls")),
+        ]
+
 
 
